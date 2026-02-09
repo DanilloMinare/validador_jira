@@ -1,2 +1,3 @@
 flask
 requests
+load_dotenv

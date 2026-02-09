@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 # Configurações - Use variáveis de ambiente em produção
 WEBHOOK_URL = os.environ.get("JIRA_WEBHOOK_URL")
+FLASK_PORT = os.environ.get("FLASK_PORT")
 TIMEOUT_SECONDS = 60
 
 @app.route('/')
@@ -41,4 +42,4 @@ def analisar():
         return jsonify({"error": f"Erro interno: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=FLASK_PORT)

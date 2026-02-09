@@ -42,4 +42,4 @@ def analisar():
         return jsonify({"error": f"Erro interno: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True, port=FLASK_PORT)
+    app.run(debug=True,host='0.0.0.0', port=FLASK_PORT)

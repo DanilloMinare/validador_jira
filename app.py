@@ -1,12 +1,15 @@
 import os
 import requests
 from flask import Flask, render_template, request, jsonify
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 app = Flask(__name__)
 
 # Configurações - Use variáveis de ambiente em produção
-# WEBHOOK_URL = os.getenv("JIRA_WEBHOOK_URL", "http://192.168.1.9:5679/webhook-test/verificar-jira")
-WEBHOOK_URL = os.getenv("JIRA_WEBHOOK_URL", "http://192.168.1.9:5679/webhook/verificar-jira")
+WEBHOOK_URL = os.environ.get("JIRA_WEBHOOK_URL")
 TIMEOUT_SECONDS = 60
 
 @app.route('/')
